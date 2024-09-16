@@ -6,6 +6,10 @@ __pycache__/
 # C extensions
 *.so
 
+# Project Files
+mydocky/db
+mydocky/documents
+
 # Distribution / packaging
 .Python
 build/
