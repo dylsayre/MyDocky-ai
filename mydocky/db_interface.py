@@ -1,8 +1,8 @@
 import os
 from langchain_openai import OpenAIEmbeddings
 from langchain_chroma import Chroma
-from dotenv import load_dotenv
-#from mydocky.models.models import OpenAIModels
+# from dotenv import load_dotenv
+# from mydocky.models.models import OpenAIModels
 
 
 class Database:
