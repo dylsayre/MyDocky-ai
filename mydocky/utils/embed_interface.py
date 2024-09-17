@@ -20,10 +20,11 @@ class EmbedDocs:
             '''
             documents = []
             for file in os.listdir(self.directory):
+                if file == ".gitkeep":
+                    continue
                 if file in self.db.get_files(self.directory):
                     continue
-                else:
-                    documents.append(file)
+                documents.append(file)
             return documents
 
         self.documents = _files_to_embed(self)
@@ -39,7 +40,7 @@ class EmbedDocs:
         '''
         Embed document as a loop
         '''
-        
+
         for file in self.documents:
             print(f"Attempting to Embed Document {file}...")
             doc = DocLoader.load_document(f"{self.directory}/{file}")
