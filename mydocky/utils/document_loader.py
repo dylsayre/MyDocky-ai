@@ -7,6 +7,7 @@ class DocLoader:
     '''
     return langchain document objectGetting loader information and text splitting
     '''
+    
     @staticmethod
     def load_document(doc: str):
         '''

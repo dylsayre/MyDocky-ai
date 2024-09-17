@@ -1,14 +1,15 @@
 import os
 from langchain_openai import OpenAIEmbeddings
 from langchain_chroma import Chroma
+# from ..models import OpenAIModels
 # from dotenv import load_dotenv
-# from mydocky.models.models import OpenAIModels
 
 
 class Database:
     '''
     Class for vector database
     '''
+    
     def __init__(self, db: str, embeddings: OpenAIEmbeddings) -> None:
         self.db_dir = db
         self.embeddings = embeddings
