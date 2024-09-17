@@ -8,7 +8,7 @@ class Chat:
         that do not exist in the database, but are in the documents folder.
         '''
 
-        self.db = db
+        self.db = db.db
 
     def similarity_search(self, query: str, k: int):
         '''

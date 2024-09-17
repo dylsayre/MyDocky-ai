@@ -24,9 +24,12 @@ def main() -> None:
         print("No files to embed")
 
     query = input("Please provide the question: \n")
-    answer = Chat(db.db).similarity_search(query, k=2)
+    answer = Chat(db).similarity_search(query, k=5)
 
-    print(answer)
+    for ans in answer:
+        meta = ans[0].metadata['source'].split("/")[-1]
+        print(f"Answer: \n{ans[0].page_content}\n From document: \n {meta}")
 
 if __name__ == "__main__":
     main()
+    
