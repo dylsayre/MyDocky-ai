@@ -4,7 +4,7 @@ from langchain_openai import OpenAIEmbeddings
 from models import OpenAIModels, Directories # pylint: disable=import-error
 from utils import Database # pylint: disable=import-error
 from utils import EmbedDocs # pylint: disable=import-error
-from chats import Chat
+# from chats import Chat
 from agents import Agent # pylint: disable=import-error
 
 def main() -> None:
@@ -32,6 +32,7 @@ def main() -> None:
         answer = Agent().start(query)
         print(f"The Final Answer: {answer}")
 
+    # Used fof the Chat class - which is just a simple similarity search.
     #for ans in answer:
     #    meta = ans[0].metadata['source'].split("/")[-1]
     #    print(f"Answer: \n{ans[0].page_content}\n From document: \n {meta}")
