@@ -36,7 +36,7 @@ class Agent:
             llm_config = {
                 "config_list": [
                     {
-                        "model": OpenAIModels.GPT_35_TURBO,
+                        "model": OpenAIModels.GPT_4O,
                         "api_key": os.environ.get("OPENAI_API_KEY")
                     }
                 ]
@@ -50,7 +50,6 @@ class Agent:
         '''
         resp = self.user_proxy.initiate_chat(self.assistant, message=question,
                                              silent=True, clear_history=True)
-        print(f"RESPONSE: {resp}")
 
         return resp.summary
 
