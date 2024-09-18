@@ -30,7 +30,7 @@ def embedding_search(question: Annotated[str, "Embedding vector search after \
     embedding_results = Database(
         Directories.DATABASE_DIRECTORY,
         OpenAIEmbeddings(model=OpenAIModels.EMBEDDING_LARGE)
-        ).db.similarity_search_with_score(question, k=3)
+        ).db.similarity_search_with_score(question, k=4)
 
     for result in embedding_results:
         embeddings.append(result[0].page_content)
