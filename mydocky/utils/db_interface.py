@@ -9,7 +9,7 @@ class Database:
     '''
     Class for vector database
     '''
-    
+
     def __init__(self, db: str, embeddings: OpenAIEmbeddings) -> None:
         self.db_dir = db
         self.embeddings = embeddings
