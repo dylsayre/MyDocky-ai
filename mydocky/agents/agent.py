@@ -49,7 +49,7 @@ class Agent:
         inititate chat
         '''
         resp = self.user_proxy.initiate_chat(self.assistant, message=question,
-                                             silent=False, clear_history=True)
+                                             silent=True, clear_history=True)
         print(f"RESPONSE: {resp}")
 
         return resp.summary
