@@ -16,4 +16,11 @@ class Directories(StrEnum):
     '''
     DOCUMENTS_DIRECTORY = "documents/"
     DATABASE_DIRECTORY = "db/"
+
+class FlaskConst(StrEnum):
+    '''
+    Flask Consts
+    '''
+
+    UPLOAD_FOLDER = 'documents/'
     

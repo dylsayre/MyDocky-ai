@@ -1,7 +1,7 @@
 import os
 from langchain_community.vectorstores import Chroma
 from langchain_openai import OpenAIEmbeddings
-from .document_loader import DocLoader
+from .document_loader import DocLoader # pylint: disable=import-error
 
 class EmbedDocs:
     '''
