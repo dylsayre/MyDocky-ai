@@ -36,7 +36,7 @@ class Agent:
             llm_config = {
                 "config_list": [
                     {
-                        "model": OpenAIModels.GPT_35_TURBO,
+                        "model": OpenAIModels.GPT_4O,
                         "api_key": os.environ.get("OPENAI_API_KEY")
                     }
                 ]
