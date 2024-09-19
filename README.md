@@ -13,4 +13,4 @@ Document Search:
 ![alt text](https://github.com/dylsayre/MyDocky-ai/blob/main/.github/documentsearch.png?raw=true)
 
 Document Response using Agents:
-![alt text](https://github.com/dylsayre/MyDocky-ai/blob/main/.github/documentanswer.png?raw=true)
+![alt text](https://github.com/dylsayre/MyDocky-ai/blob/main/.github/docsearchanswer.png?raw=true)
