@@ -7,12 +7,12 @@ __pycache__/
 *.so
 
 # Project Files
-mydocky/db/*
-mydocky/documents/*
+/db/*
+/documents/*
 
 # excpetions - using this in order to commit the folder structure.
-!mydocky/documents/.gitkeep
-!mydocky/db/.gitkeep
+!/documents/.gitkeep
+!/db/.gitkeep
 
 # Distribution / packaging
 .Python

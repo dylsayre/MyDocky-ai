@@ -1,7 +1,7 @@
 import os
 import autogen
 from .registers import register_functions
-from models import OpenAIModels # pylint: disable=import-error
+from models.dataclasses import OpenAIModels # pylint: disable=import-error
 
 
 class Agent:
@@ -10,7 +10,7 @@ class Agent:
     '''
 
     def __init__(self):
-        sys_prompt = open("mydocky/prompts/system.md", "r", encoding="utf-8")
+        sys_prompt = open("prompts/system.md", "r", encoding="utf-8")
         self.system_message = sys_prompt.read()
 
         self.user_proxy = autogen.UserProxyAgent(
@@ -49,8 +49,7 @@ class Agent:
         inititate chat
         '''
         resp = self.user_proxy.initiate_chat(self.assistant, message=question,
-                                             silent=True, clear_history=True)
-        print(f"RESPONSE: {resp}")
+                                             silent=False, clear_history=True)
 
         return resp.summary
 

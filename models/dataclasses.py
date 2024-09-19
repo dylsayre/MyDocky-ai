@@ -14,6 +14,13 @@ class Directories(StrEnum):
     '''
     ENUMS for Directories
     '''
-    DOCUMENTS_DIRECTORY = "mydocky/documents"
-    DATABASE_DIRECTORY = "mydocky/db"
+    DOCUMENTS_DIRECTORY = "documents/"
+    DATABASE_DIRECTORY = "db/"
+
+class FlaskConst(StrEnum):
+    '''
+    Flask Consts
+    '''
+
+    UPLOAD_FOLDER = 'documents/'
     

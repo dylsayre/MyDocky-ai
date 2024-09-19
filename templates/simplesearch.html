@@ -1,0 +1,11 @@
+{% extends "template.html"%}
+
+{% block header %}
+<h1 class="display-5 fw-bolder text-white mb-2">Simple Search</h1>
+<form action="/simplesearch" method="post">
+    <textarea class="commontextarea" name="search" id="simplesta" rows="6" cols="70"></textarea>
+    <div>
+        <button type="submit">Submit</button>
+    </div>
+</form>
+{% endblock %}

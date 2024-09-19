@@ -1,9 +1,9 @@
 import sys
 from dotenv import load_dotenv
 from langchain_openai import OpenAIEmbeddings
-from models import OpenAIModels, Directories # pylint: disable=import-error
-from utils import Database # pylint: disable=import-error
-from utils import EmbedDocs # pylint: disable=import-error
+from utils.db_interface import Database # pylint: disable=import-error
+from models.dataclasses import OpenAIModels, Directories # pylint: disable=import-error
+from utils.embed_interface import EmbedDocs # pylint: disable=import-error
 # from chats import Chat
 from agents import Agent # pylint: disable=import-error
 

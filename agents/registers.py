@@ -1,7 +1,7 @@
 from typing import Annotated
 from autogen import register_function
-from models import OpenAIModels, Directories # pylint: disable=import-error
-from utils import Database # pylint: disable=import-error
+from models.dataclasses import OpenAIModels, Directories # pylint: disable=import-error
+from utils.db_interface import Database # pylint: disable=import-error
 from langchain_openai import OpenAIEmbeddings
 
 
