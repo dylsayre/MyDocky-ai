@@ -2,12 +2,11 @@ import os
 from flask import Flask, flash, render_template, request
 from werkzeug.utils import secure_filename
 from dotenv import load_dotenv
+from langchain_openai import OpenAIEmbeddings
 from agents.agent import Agent
 from utils.db_interface import Database # pylint: disable=import-error
 from utils.embed_interface import EmbedDocs # pylint: disable=import-error
 from models.dataclasses import OpenAIModels, Directories, FlaskConst # pylint: disable=import-error
-from langchain_openai import OpenAIEmbeddings # pylint: disable=import-error
-from const import Const, EXT # pylint: disable=import-error
 
 
 load_dotenv()

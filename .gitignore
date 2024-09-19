@@ -7,12 +7,12 @@ __pycache__/
 *.so
 
 # Project Files
-db/*
-documents/*
+/db/*
+/documents/*
 
 # excpetions - using this in order to commit the folder structure.
-!documents/.gitkeep
-!db/.gitkeep
+!/documents/.gitkeep
+!/db/.gitkeep
 
 # Distribution / packaging
 .Python
