@@ -1,5 +1,9 @@
 # MyDocky-ai
-Document pipeline directory and OpenAI analysis.
+Document pipeline with file directory and OpenAI analysis using an agentic approach.
+
+This repository uses the ChromaDB Vector Database for embedding of documents with a Flask backend.
+
+https://github.com/dylsayre/MyDocky-ai/blob/main/.github/homescreen.png
 
 1. clone repo
 
