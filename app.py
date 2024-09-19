@@ -7,6 +7,7 @@ from agents.agent import Agent
 from utils.db_interface import Database # pylint: disable=import-error
 from utils.embed_interface import EmbedDocs # pylint: disable=import-error
 from models.dataclasses import OpenAIModels, Directories, FlaskConst # pylint: disable=import-error
+from sec_agent.security_agent import SecAgent # pylint: disable=import-error
 
 
 load_dotenv()
@@ -32,21 +33,26 @@ def index():
 
     return render_template("index.html")
 
-@app.route("/simplesearch", methods=["GET", "POST"])
-def simple_search():
+@app.route("/security", methods=["GET", "POST"])
+def security_search():
     '''
-    simple search endpoint
+    security search endpoint
     '''
 
     if request.method == "POST":
-        return render_template("simplesearchrender.html", data="test")
 
-    return render_template("simplesearch.html")
+        default_value = "Error"
+        query = request.form.get('secsearch', default_value)
+        response = SecAgent().start(query)
+
+        return render_template("securityrender.html", data=response)
+
+    return render_template("securitysearch.html")
 
 @app.route("/documentsearch", methods=["GET", "POST"])
 def document_search():
     '''
-    simple search endpoint
+    document search endpoint
     '''
     if request.method == "POST":
 

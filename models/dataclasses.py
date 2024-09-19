@@ -16,6 +16,8 @@ class Directories(StrEnum):
     '''
     DOCUMENTS_DIRECTORY = "documents/"
     DATABASE_DIRECTORY = "db/"
+    AGENT_PROMPT = "prompts/system.md"
+    SECURITY_AGENT_PROMPT = "prompts/sec_system.md"
 
 class FlaskConst(StrEnum):
     '''

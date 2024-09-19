@@ -1,16 +1,17 @@
 import os
 import autogen
-from .registers import register_functions
+from dotenv import load_dotenv
+from .security_registers import register_functions
 from models.dataclasses import OpenAIModels, Directories # pylint: disable=import-error
 
 
-class Agent:
+class SecAgent:
     '''
     Initializing Agent
     '''
 
     def __init__(self):
-        sys_prompt = open(Directories.AGENT_PROMPT, "r", encoding="utf-8")
+        sys_prompt = open(Directories.SECURITY_AGENT_PROMPT, "r", encoding="utf-8")
         self.system_message = sys_prompt.read()
 
         self.user_proxy = autogen.UserProxyAgent(
@@ -41,7 +42,7 @@ class Agent:
                     }
                 ]
             },
-            human_input_mode = "NEVER",
+            human_input_mode = "NEVER"
         )
 
     def start(self, question: str) -> str:
@@ -54,4 +55,8 @@ class Agent:
         return resp.summary
 
 if __name__ == "__main__":
+    # load_dotenv()
+    # agent = SecAgent()
+    # answer = agent.start("")
+    # print(answer)
     pass
