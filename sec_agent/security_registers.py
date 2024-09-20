@@ -49,6 +49,22 @@ def register_functions(assistant, user_proxy):
         description = "given a URL or domain, return the details of the analysis done by URLScan.io"
     )
 
+    register_function(
+        ipapi,
+        caller = assistant,
+        executor = user_proxy,
+        description = "given an IP Address, return the details of the IP Address from ipapi"
+    )
+
+    register_function(
+        abuse_ip,
+        caller = assistant,
+        executor = user_proxy,
+        description = "given an IP Address, return the details of the IP Address from AbuseIPDB, \
+            a higher abuseConfidenceScore out of 100 is malcious \
+                although a higher number of abuse reports can still be considered malicous"
+    )
+
 
 def vt_get_hash(hashn: Annotated[str, "Hash Value for checking the hash information"]) -> json:
     '''
@@ -76,7 +92,10 @@ def type_of_hash(hashn: Annotated[str, "Get the hash type (sha1, sha256, md5) fr
         return "md5"
     return "not a valid hash, TERMINATE"
 
-def circl_get_hash(hashn: Annotated[str, "Hash Value for checking the hash information from circl.lu"], hash_type: Annotated[str, "Type (valid: sha256, sha1, md5) of the hash from the hash value"]) -> json:
+def circl_get_hash(hashn: Annotated[str, "Hash Value for checking the \
+                    hash information from circl.lu"],
+                   hash_type: Annotated[str, "Type (valid: sha256, sha1, md5) \
+                    of the hash from the hash value"]) -> json:
     '''
     Function call to get hash information from Virustotal to use in autogen AI
     '''
@@ -87,7 +106,8 @@ def circl_get_hash(hashn: Annotated[str, "Hash Value for checking the hash infor
                      headers=headers, timeout=600)
     return r.json()
 
-def shodan_ip_lookup(ipaddr: Annotated[str, "IP Address for searching the Shodan database"]) -> json:
+def shodan_ip_lookup(ipaddr: Annotated[str, "IP Address for searching \
+                                       the Shodan database"]) -> json:
     '''
     Using the Shodan API pull back information about a specific IP Address. 
     '''
@@ -125,3 +145,41 @@ def urlscan_url_lookup(url: Annotated[str, "URL or domain to search in URLScan"]
             else:
                 return "Status code other than 200 or 404, \
                     which indicates there is an issue with the API"
+
+def ipapi(ipaddr: Annotated[str, "IP Address for searching the IPAPI"]) -> json:
+    '''
+    Using the IPAPI pull back information about a specific IP Address. 
+    '''
+
+    ipapi_response = requests.get(f"https://ipapi.co/{ipaddr}/json/", timeout=600)
+
+    if ipapi_response.json():
+        return ipapi_response.json()
+    return "No data found, possible API issue."
+
+def abuse_ip(ipaddr: Annotated[str, "IP Address for searching the AbuseIPDB, \
+                    a higher abuseConfidenceScore out of 100 is malcious, \
+                    although a higher number of abuse reports can still be considered malicous"]):
+    '''
+    Using the AbuseIPDB pull back information about a specific IP Address.
+    '''
+    url = 'https://api.abuseipdb.com/api/v2/check'
+
+    querystring = {
+        'ipAddress': f'{ipaddr}',
+        'maxAgeInDays': '90'
+    }
+
+    headers = {
+        'Accept': 'application/json',
+        'Key': f'{os.environ.get("ABUSEIPDB_API_KEY")}'
+    }
+
+    response = requests.get(url=url, headers=headers, params=querystring, timeout=600)
+
+    if response:
+        return response.json()
+    return "No Data Available for AbuseIPDB"
+
+if __name__ == "__main__":
+    pass

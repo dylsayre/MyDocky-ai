@@ -108,6 +108,19 @@ body {
     resize: none;
 }
 
+/* Make sure nothing inside buttons can send click events so we can catch button clicks with delegated events. */
+button * {
+  pointer-events: none;
+}
+
+/* Just a really naive css example to swap the button contents with the spinner. Bring your own spinner & styles. */
+.loading {
+  opacity: .5;
+}
+.loading span {
+  display: none;
+}
+
 hr {
   margin: 1rem 0;
   color: inherit;

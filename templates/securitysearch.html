@@ -2,10 +2,10 @@
 
 {% block header %}
 <h1 class="display-5 fw-bolder text-white mb-2">Cybersecurity Search</h1>
-<form action="/security" method="post">
+<form id="secform" action="/security" method="post">
     <textarea class="commontextarea" name="secsearch" id="secsearch" rows="6" cols="70"></textarea>
     <div>
-        <button type="submit">Submit</button>
+        <button type="submit"><span>Submit</span></button>
     </div>
 </form>
 {% endblock %}
