@@ -1,6 +1,5 @@
 import os
 import autogen
-from dotenv import load_dotenv
 from .security_registers import register_functions
 from models.dataclasses import OpenAIModels, Directories # pylint: disable=import-error
 
